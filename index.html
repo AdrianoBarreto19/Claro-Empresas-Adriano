@@ -33,7 +33,7 @@
 
   /* === INICIO DE NUEVO CSS === */
 
-  /* 1. Para animaciones de Scroll (Fade-in) */
+  /* 1. Animaciones de Scroll (Fade-in) */
   .observation-target {
     opacity: 0;
     transform: translateY(20px);
@@ -44,7 +44,7 @@
     transform: translateY(0);
   }
 
-  /* 2. Para el Popup de "Exit-Intent" */
+  /* 2. Popup de "Exit-Intent" */
   #exit-intent-popup {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -82,11 +82,79 @@
     cursor: pointer;
   }
 
-  /* 3. Para la Navegación Activa */
+  /* 3. Navegación Activa */
   .nav-link-active {
     color: var(--claro) !important;
     font-weight: 800;
   }
+
+  /* 4. Animación Hover "Lift" */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgb(0 0 0 / .08);
+  }
+
+  /* 5. Nuevos Tabs de Planes */
+  .tab-btn {
+    padding: .6rem 1.2rem;
+    border-radius: .75rem;
+    font-weight: 700;
+    font-size: 15px;
+    background: #fff;
+    border: 1px solid rgb(0 0 0 / .08);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .tab-btn:hover {
+    background: #f4f4f4;
+  }
+  .tab-btn.active {
+    background: var(--claro);
+    color: #fff;
+    border-color: var(--claro);
+  }
+  .tab-pane {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .tab-pane.active {
+    display: grid; /* Cambiado de 'block' a 'grid' para que el grid interno funcione */
+    opacity: 1;
+  }
+  .plan-card .price {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--claro);
+    line-height: 1.2;
+    margin-top: .75rem;
+  }
+
+  /* 6. Nuevo Grid de Herramientas */
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .tool-card .icon {
+    width: 36px;
+    height: 36px;
+    color: var(--claro);
+  }
+  .tool-card h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: .25rem;
+  }
+  .tool-card p {
+    font-size: 14px;
+    color: #444;
+  }
+
 </style>
 </head>
 <body class="bg-neutral-50/60 text-neutral-900">
@@ -126,23 +194,23 @@
 <section class="brand-gradient">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
     <div>
-      <div class="kicker">Alto rendimiento para tu negocio</div>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-1">Fibra 1000 Mbps, TV corporativa y Telefonía fija</h1>
-      <p class="text-neutral-700 mt-4 text-[15.5px]">Campaña corporativa con <b>–50% por 6 meses</b> en 2Play TV, <b>bono 1000 Mbps x 12 m</b>, Wi-Fi 6, Mesh (si aplica) y <b>Herramientas Digitales</b> (Email, Backup, Seguridad, Factura Web, Tienda Virtual).</p>
-      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[12.5px]">
+      <div class="kicker observation-target">Alto rendimiento para tu negocio</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-1 observation-target" style="transition-delay: 100ms;">Fibra 1000 Mbps, TV corporativa y Telefonía fija</h1>
+      <p class="text-neutral-700 mt-4 text-[15.5px] observation-target" style="transition-delay: 200ms;">Campaña corporativa con <b>–50% por 6 meses</b> en 2Play TV, <b>bono 1000 Mbps x 12 m</b>, Wi-Fi 6, Mesh (si aplica) y <b>Herramientas Digitales</b> (Email, Backup, Seguridad, Factura Web, Tienda Virtual).</p>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[12.5px] observation-target" style="transition-delay: 300ms;">
         <span class="chip">Wi-Fi 6</span>
         <span class="chip">L1 Max</span>
         <span class="chip">Instalación S/0</span>
         <span class="chip">Soporte corporativo</span>
       </div>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#contacto" class="btn btn-primary pulse">Quiero cotizar ahora</a>
-        <a href="#planes" class="btn btn-ghost">Ver planes</a>
+      <div class="mt-6 flex flex-wrap gap-3 observation-target" style="transition-delay: 400ms;">
+        <a href="#contacto" class="btn btn-primary pulse hover-lift">Quiero cotizar ahora</a>
+        <a href="#planes" class="btn btn-ghost hover-lift">Ver planes</a>
       </div>
-      <div class="mt-4 text-xs text-neutral-600">Instalación S/0 sujeta a evaluación y cobertura. Solo RUC 10/20.</div>
+      <div class="mt-4 text-xs text-neutral-600 observation-target" style="transition-delay: 500ms;">Instalación S/0 sujeta a evaluación y cobertura. Solo RUC 10/20.</div>
     </div>
 
-    <form id="leadTop" class="card p-5 bg-white" onsubmit="return false;">
+    <form id="leadTop" class="card p-5 bg-white observation-target" style="transition-delay: 300ms;" onsubmit="return false;">
       <div class="flex items-center justify-between">
         <h3 class="text-xl font-extrabold">Cotización rápida</h3>
         <span class="badge">Atención inmediata</span>
@@ -150,7 +218,7 @@
       <p class="text-[13.5px] text-neutral-600 mt-1">Completa y te escribo por WhatsApp con tu ahorro exacto.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
         <input class="card p-3" name="nombre" placeholder="Nombre y Apellidos *" required />
-        <input class="card p-3" name="ruc" placeholder="RUC 10 o 20 *" required />
+        <input class="card p-3" name="ruc" placeholder="RUC 10 o 20 (11 dígitos) *" required />
         <input class="card p-3 md:col-span-2" name="direccion" placeholder="Dirección (domicilio fiscal) *" required/>
         <select class="card p-3" name="plan">
           <option value="2Play Internet + TV (400→1000)">2Play Internet + TV (400→1000)</option>
@@ -161,255 +229,222 @@
         </select>
         <input class="card p-3" name="correo" type="email" placeholder="Correo de facturación *" required/>
       </div>
-      <button class="btn btn-primary w-full mt-4" type="submit">Enviar y conversar por WhatsApp</button>
+      <button class="btn btn-primary w-full mt-4 hover-lift" type="submit">Enviar y conversar por WhatsApp</button>
       <div class="text-[12px] text-neutral-500 mt-2">Tus datos se enviarán únicamente a <b>+51 947 723 248</b>.</div>
     </form>
   </div>
 </section>
 
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
-  <div class="grid md:grid-cols-3 gap-4">
-    <div class="card p-5 observation-target">
-      <div class="kicker">Oferta estrella</div>
-      <h4 class="text-2xl font-extrabold mt-1">2Play Internet 400→1000 + TV </h4>
-      <p class="text-sm text-neutral-700 mt-1">L1 Max incluido, 100h de grabación, 2 decos S/0. costo.</p>
-      <div class="mt-3 text-3xl font-black text-red-600">S/ 85 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
-      <div class="tiny">Precio regular: S/ 170</div>
-      <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
-    </div>
-    <div class="card p-5 observation-target">
-      <div class="kicker">Top ahorro</div>
-      <h4 class="text-2xl font-extrabold mt-1">2Play Internet 300→600 + Telefonia Fija </h4>
-      <p class="text-sm text-neutral-700 mt-1">5000 min internacionales con internet estable para negocios en crecimiento.</p>
-      <div class="mt-3 text-3xl font-black text-red-600">S/ 64 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
-      <div class="tiny">Precio regular: S/ 84</div>
-      <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
-    </div>
-    <div class="card p-5 observation-target">
-      <div class="kicker">Solo Internet</div>
-      <h4 class="text-2xl font-extrabold mt-1">1Play 400→1000</h4>
-      <p class="text-sm text-neutral-700 mt-1">Wi-Fi 6 y Mesh (si aplica). Ideal para home-office pro.</p>
-      <div class="mt-3 text-3xl font-black text-red-600">S/ 89</div>
-      <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
-    </div>
-  </div>
-</section>
-
 <section id="planes" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="mb-6">
-    <div class="kicker">Catálogo</div>
-    <h3 class="text-3xl md:text-4xl font-extrabold">¡Ahora 1000 Mbps por 12 meses!</h3>
-    <p class="text-neutral-600 mt-2">Se confirman tras validar cobertura y evaluación. Después de 6 meses aplican cargos regulares del plan.</p>
+  <div class="mb-6 observation-target">
+    <div class="kicker">Catálogo Interactivo</div>
+    <h3 class="text-3xl md:text-4xl font-extrabold">¡Elige tu Play y mira tu ahorro!</h3>
+    <p class="text-neutral-600 mt-2">Bono 1000 Mbps x 12 meses aplica en planes 2Play TV. Descuentos por 6 meses.</p>
   </div>
 
-  <div class="overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-lg bg-white observation-target">
-    <table class="w-full table text-sm md:text-[15px]">
-      <thead class="bg-red-600 text-white">
-        <tr>
-          <th class="p-3 text-left">PLAN</th>
-          <th class="p-3 text-left">1 PLAY<br><span class="text-xs opacity-90">Internet Fijo</span></th>
-          <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Telefonía 5000</span></th>
-          <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Estándar Pro</span></th>
-          <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Superior Pro</span></th>
-          <th class="p-3 text-left">3 PLAY<br><span class="text-xs opacity-90">Estándar Pro</span></th>
-          <th class="p-3 text-left">3 PLAY<br><span class="text-xs opacity-90">Superior Pro</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="bg-red-50/60 font-semibold">
-          <td class="p-3">1500 Mbps<br><span class="text-[10px]">Con Full Claro + GB en tu móvil</span></td>
-          <td class="p-3">S/ 200</td>
-          <td class="p-3">S/ 205</td>
-          <td class="p-3 tooltip">
-            S/ 142.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 285</div><span class="tip">Luego: S/ 285</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 162.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 325</div><span class="tip">Luego: S/ 325</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 145 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 290</div><span class="tip">Luego: S/ 290</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 165 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 330</div><span class="tip">Luego: S/ 330</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="p-3">1000 Mbps</td>
-          <td class="p-3">S/ 145</td>
-          <td class="p-3">S/ 150</td>
-          <td class="p-3 tooltip">
-            S/ 115 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 230</div><span class="tip">Luego: S/ 230</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 135 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 270</div><span class="tip">Luego: S/ 270</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 117.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 235</div><span class="tip">Luego: S/ 235</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 137.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 275</div><span class="tip">Luego: S/ 275</span>
-          </td>
-        </tr>
-
-        <tr class="bg-red-50/60">
-          <td class="p-3">800 → 1000 Mbps <span class="text-[10px]">x 12 m</span></td>
-          <td class="p-3">S/ 100</td>
-          <td class="p-3">S/ 105</td>
-          <td class="p-3 tooltip">
-            S/ 92.50 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 185</div><span class="tip">Luego: S/ 185</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 112.50 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 225</div><span class="tip">Luego: S/ 225</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 95 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 190</div><span class="tip">Luego: S/ 190</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 115 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 230</div><span class="tip">Luego: S/ 230</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="p-3">400 → 1000 Mbps <span class="text-[10px]">x 12 m</span></td>
-          <td class="p-3">S/ 89</td>
-          <td class="p-3 tooltip">
-            <b>S/ 84.90</b> <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 94</div><span class="tip">Luego: S/ 94</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 85 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 170</div><span class="tip">Luego: S/ 170</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 105 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 210</div><span class="tip">Luego: S/ 210</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 87.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 175</div><span class="tip">Luego: S/ 175</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 107.5 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 215</div><span class="tip">Luego: S/ 215</span>
-          </td>
-        </tr>
-
-        <tr class="bg-red-50/60">
-          <td class="p-3">300 → 600 Mbps <span class="text-[10px]">x 12 m</span></td>
-          <td class="p-3">S/ 79</td>
-          <td class="p-3 tooltip">
-            S/ 64 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 84</div><span class="tip">Luego: S/ 84</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 99 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 160</div><span class="tip">Luego: S/ 160</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 139 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 200</div><span class="tip">Luego: S/ 200</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 104 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 165</div><span class="tip">Luego: S/ 165</span>
-          </td>
-          <td class="p-3 tooltip">
-            S/ 144 <span class="text-xs">x 6 m</span>
-            <div class="tiny">Precio regular: S/ 205</div><span class="tip">Luego: S/ 205</span>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="p-3">200 → 400 Mbps <span class="text-[10px]">x 12 m</span></td>
-          <td class="p-3">S/ 69</td>
-          <td class="p-3">S/ 74</td>
-          <td class="p-3">S/ 150</td>
-          <td class="p-3">S/ 190</td>
-          <td class="p-3">S/ 155</td>
-          <td class="p-3">S/ 195</td>
-        </tr>
-      </tbody>
-    </table>
+  <div id="plan-tabs" class="flex flex-wrap gap-2 md:gap-3 mb-6 observation-target">
+    <button class="tab-btn active hover-lift" data-tab="2play-tv">2Play TV + Internet</button>
+    <button class="tab-btn hover-lift" data-tab="2play-linea">2Play Línea + Internet</button>
+    <button class="tab-btn hover-lift" data-tab="1play">1Play Internet</button>
+    <button class="tab-btn hover-lift" data-tab="3play">3Play (Todo)</button>
   </div>
-  <div class="text-xs text-neutral-500 mt-2">* Valores referenciales de campaña corporativa. Confirmación sujeta a elegibilidad, cobertura y evaluación.</div>
+
+  <div id="plan-content" class="relative">
+
+    <div class="tab-pane active" id="tab-2play-tv">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="plan-card card p-5 observation-target hover-lift ring-2 ring-[var(--claro)]">
+          <span class="badge">Oferta Estrella</span>
+          <h4 class="text-xl font-extrabold mt-2">400 → 1000 Mbps + TV</h4>
+          <p class="text-sm text-neutral-700 mt-1">L1 Max incluido, 100h de grabación, 2 decos S/0.</p>
+          <div class="price">S/ 85 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 170</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">800 → 1000 Mbps + TV</h4>
+          <p class="text-sm text-neutral-700 mt-1">TV Superior Pro, L1 Max, 100h de grabación.</p>
+          <div class="price">S/ 112.50 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 225</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Velocidad Pura</span>
+          <h4 class="text-xl font-extrabold mt-2">1000 Mbps + TV</h4>
+          <p class="text-sm text-neutral-700 mt-1">TV Superior Pro, L1 Max, 100h de grabación.</p>
+          <div class="price">S/ 135 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 270</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+        
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Full Claro</span>
+          <h4 class="text-xl font-extrabold mt-2">1500 Mbps + TV</h4>
+          <p class="text-sm text-neutral-700 mt-1">TV Superior Pro, L1 Max, +GB en tu móvil.</p>
+          <div class="price">S/ 162.5 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 325</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-2play-linea">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="plan-card card p-5 observation-target hover-lift ring-2 ring-[var(--claro)]">
+          <span class="badge">Top Ahorro</span>
+          <h4 class="text-xl font-extrabold mt-2">300 → 600 Mbps + Línea</h4>
+          <p class="text-sm text-neutral-700 mt-1">Bono 600Mbps x 12m. 5000 min nac + 100 int.</p>
+          <div class="price">S/ 64 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 84</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+        
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">400 → 1000 Mbps + Línea</h4>
+          <p class="text-sm text-neutral-700 mt-1">Bono 1000Mbps x 12m. 5000 min nac + 100 int.</p>
+          <div class="price">S/ 84.90 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 94</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+        
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">800 → 1000 Mbps + Línea</h4>
+          <p class="text-sm text-neutral-700 mt-1">Bono 1000Mbps x 12m. 5000 min nac + 100 int.</p>
+          <div class="price">S/ 105</div>
+          <div class="tiny">Precio regular (sin promo 6m)</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-1play">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 400 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">200 → 400 Mbps</h4>
+          <p class="text-sm text-neutral-700 mt-1">Solo Internet. Bono 400Mbps x 12m. Wi-Fi 6.</p>
+          <div class="price">S/ 69</div>
+          <div class="tiny">Precio regular</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">Lo quiero</a>
+        </div>
+
+        <div class="plan-card card p-5 observation-target hover-lift ring-2 ring-[var(--claro)]">
+          <span class="badge">Recomendado</span>
+          <h4 class="text-xl font-extrabold mt-2">400 → 1000 Mbps</h4>
+          <p class="text-sm text-neutral-700 mt-1">Solo Internet. Bono 1000Mbps x 12m. Wi-Fi 6.</p>
+          <div class="price">S/ 89</div>
+          <div class="tiny">Precio regular</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">Lo quiero</a>
+        </div>
+
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">800 → 1000 Mbps</h4>
+          <p class="text-sm text-neutral-700 mt-1">Solo Internet. Bono 1000Mbps x 12m. Wi-Fi 6.</p>
+          <div class="price">S/ 100</div>
+          <div class="tiny">Precio regular</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">Lo quiero</a>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="tab-pane" id="tab-3play">
+       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="plan-card card p-5 observation-target hover-lift ring-2 ring-[var(--claro)]">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">400 → 1000 + TV + Línea</h4>
+          <p class="text-sm text-neutral-700 mt-1">TV Estándar Pro, L1 Max, Línea 5000 min.</p>
+          <div class="price">S/ 87.50 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 175</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">Lo quiero</a>
+        </div>
+
+        <div class="plan-card card p-5 observation-target hover-lift">
+          <span class="badge">Bono 1000 Mbps</span>
+          <h4 class="text-xl font-extrabold mt-2">800 → 1000 + TV + Línea</h4>
+          <p class="text-sm text-neutral-700 mt-1">TV Estándar Pro, L1 Max, Línea 5000 min.</p>
+          <div class="price">S/ 95 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+          <div class="tiny">Precio regular: S/ 190</div>
+          <a href="#contacto" class="btn btn-primary w-full mt-4">La quiero</a>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  <div class="text-xs text-neutral-500 mt-4">* Valores referenciales de campaña corporativa. Confirmación sujeta a elegibilidad, cobertura y evaluación.</div>
 </section>
 
-<section id="herramientas" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="mb-6">
+
+<section id="herramientas" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 brand-gradient rounded-3xl my-10">
+  <div class="mb-6 observation-target">
     <div class="kicker">Transformación Digital</div>
-    <h3 class="text-3xl md:text-4xl font-extrabold">Herramientas Digitales incluidas (según plan)</h3>
-    <p class="text-neutral-600 mt-2">Se activan <b>por cliente</b> y <b>según plan de Internet contratado</b>. Sin costo adicional.</p>
+    <h3 class="text-3xl md:text-4xl font-extrabold">Herramientas Digitales para tu Negocio</h3>
+    <p class="text-neutral-600 mt-2">Incluidas en tu plan sin costo adicional. Potencia tu empresa.</p>
   </div>
 
-  <div class="overflow-x-auto card p-4 observation-target">
-    <table class="min-w-[880px] w-full text-sm">
-      <thead>
-        <tr class="bg-neutral-100">
-          <th class="p-2 text-left w-40">Herramienta</th>
-          <th class="p-2 text-left">200 Mb</th>
-          <th class="p-2 text-left">300 Mb</th>
-          <th class="p-2 text-left">400 Mb</th>
-          <th class="p-2 text-left">800 Mb</th>
-          <th class="p-2 text-left">1000 Mb</th>
-          <th class="p-2 text-left">1500 Mb</th>
-        </tr>
-      </thead>
-      <tbody class="[&>tr:nth-child(odd)]:bg-neutral-50/70">
-        <tr><td class="p-2 font-semibold">Claro Drive Negocios</td>
-          <td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td></tr>
-        <tr><td class="p-2 font-semibold">Claro Backup</td>
-          <td class="p-2">—</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td></tr>
-        <tr><td class="p-2 font-semibold">Seguridad Empresas</td>
-          <td class="p-2">1 licencia Antivirus</td><td class="p-2">1 licencia Antivirus</td><td class="p-2">1 licencia Antivirus</td><td class="p-2">2 licencias Antivirus</td><td class="p-2">2 licencias Antivirus</td><td class="p-2">2 licencias Antivirus</td></tr>
-        <tr><td class="p-2 font-semibold">Factura Electrónica Web</td>
-          <td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td></tr>
-        <tr><td class="p-2 font-semibold">Email Empresas</td>
-          <td class="p-2">—</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td></tr>
-        <tr><td class="p-2 font-semibold">Microsoft 365*</td>
-          <td class="p-2">—</td><td class="p-2">—</td><td class="p-2"></td>—<td class="p-2">1 licencia</td><td class="p-2">2 licencias</td><td class="p-2">2 licencias</td></tr>
-        <tr><td class="p-2 font-semibold">Tienda Virtual</td>
-          <td class="p-2">—</td><td class="p-2">—</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+    
+    <div class="tool-card card p-5 observation-target hover-lift">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+      <h4>Tienda Virtual</h4>
+      <p>Tu catálogo en línea con cobros. (Planes 400Mb+)</p>
+    </div>
+    
+    <div class="tool-card card p-5 observation-target hover-lift" style="transition-delay: 100ms;">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+      <h4>Factura Web</h4>
+      <p>Emite hasta 60 comprobantes al mes. (Todos los planes)</p>
+    </div>
+    
+    <div class="tool-card card p-5 observation-target hover-lift" style="transition-delay: 200ms;">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+      <h4>Seguridad Empresas</h4>
+      <p>Licencias Antivirus para proteger tus equipos. (Todos los planes)</p>
+    </div>
 
-  <div class="grid md:grid-cols-2 gap-6 mt-6">
-    <div class="card p-5 observation-target">
-      <h4 class="text-xl font-extrabold">¿Qué incluyen?</h4>
-      <ul class="mt-3 space-y-2 text-sm text-neutral-700">
-        <li>• <b>Drive</b>: nube corporativa para compartir y restaurar archivos.</li>
-        <li>• <b>Backup</b>: copias seguras de equipos (15 GB por equipo).</li>
-        <li>• <b>Seguridad</b>: antivirus empresarial por licencias.</li>
-        <li>• <b>Factura Web</b>: portal con hasta 60 comprobantes al mes.</li>
-        <li>• <b>Email Empresas</b>: dominio personalizado y 20 GB por buzón.</li>
-        <li>• <b>Microsoft 365</b>: productividad (según plan).</li>
-        <li>• <b>Tienda Virtual</b>: catálogo y cobro online (según plan).</li>
-      </ul>
-      <div class="text-xs text-neutral-500 mt-3">*Disponibilidad/ediciones de M365 pueden variar por campaña.</div>
+    <div class="tool-card card p-5 observation-target hover-lift" style="transition-delay: 300ms;">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+      <h4>Claro Drive</h4>
+      <p>100 GB en la nube corporativa para tus archivos. (Todos los planes)</p>
     </div>
-    <div class="card p-5 brand-gradient observation-target">
-      <h4 class="text-xl font-extrabold">Beneficio práctico</h4>
-      <p class="mt-2 text-neutral-700 text-sm">Estas herramientas te permiten vender en línea, emitir facturas sin sistemas costosos, proteger equipos y trabajar en la nube —todo bajo una sola factura corporativa de Claro Empresas.</p>
-      <a href="#contacto" class="btn btn-primary mt-4">Activarlas en mi empresa</a>
+    
+    <div class="tool-card card p-5 observation-target hover-lift">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+      <h4>Email Empresas</h4>
+      <p>2 cuentas de correo con dominio propio. (Planes 300Mb+)</p>
     </div>
+
+    <div class="tool-card card p-5 observation-target hover-lift" style="transition-delay: 100ms;">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+      <h4>Claro Backup</h4>
+      <p>15 GB de copia de seguridad por equipo. (Planes 300Mb+)</p>
+    </div>
+
+    <div class="tool-card card p-5 observation-target hover-lift" style="transition-delay: 200ms;">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M3 10h4M3 14h4M3 6h4M21 10h-4M21 14h-4M21 6h-4M12 3v4M12 17v4M12 10h0"></path></svg>
+      <h4>Microsoft 365</h4>
+      <p>Licencias de productividad (Teams, Office). (Planes 800Mb+)</p>
+    </div>
+
   </div>
 </section>
+
 
 <section id="tv" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8">
-  <div class="card p-6 observation-target">
+  <div class="card p-6 observation-target hover-lift">
     <div class="kicker">Claro TV+</div>
     <h4 class="text-2xl font-extrabold">Más contenido y tecnología</h4>
     <ul class="mt-3 space-y-2 text-sm text-neutral-700">
@@ -420,7 +455,7 @@
     </ul>
     <a href="#contacto" class="btn btn-primary mt-5">Quiero TV Pro</a>
   </div>
-  <div id="telefonia" class="watch-section card p-6 observation-target">
+  <div id="telefonia" class="watch-section card p-6 observation-target hover-lift">
     <div class="kicker">Telefonía fija</div>
     <h4 class="text-2xl font-extrabold">5000 min + 100 internacionales</h4>
     <ul class="mt-3 space-y-2 text-sm text-neutral-700">
@@ -437,15 +472,15 @@
     <div class="kicker">¿Por qué elegirnos?</div>
     <h4 class="text-2xl font-extrabold">Comparativa rápida</h4>
     <div class="mt-4 grid md:grid-cols-3 gap-4 text-sm">
-      <div class="card p-4">
+      <div class="card p-4 hover-lift">
         <b>Contenido TV+</b>
         <p class="mt-1">L1 Max incluido en Pro, 100h grabación, 2 decos sin costo (FTTH), Dolby Atmos.</p>
       </div>
-      <div class="card p-4">
+      <div class="card p-4 hover-lift">
         <b>Internet & Wi-Fi</b>
         <p class="mt-1">Wi-Fi 6, opción Mesh, bonos 400→1000/300→600/200→400 según combinación.</p>
       </div>
-      <div class="card p-4">
+      <div class="card p-4 hover-lift">
         <b>Digital & Soporte</b>
         <p class="mt-1">Email Empresas, Backup, Seguridad, Factura Web, Tienda Virtual y atención empresarial.</p>
       </div>
@@ -476,8 +511,8 @@
       </table>
     </div>
     <div class="mt-4 flex flex-wrap gap-3">
-      <a href="#contacto" class="btn btn-primary">Quiero la promo</a>
-      <a href="#contacto" class="btn btn-ghost">Armar paquete</a>
+      <a href="#contacto" class="btn btn-primary hover-lift">Quiero la promo</a>
+      <a href="#contacto" class="btn btn-ghost hover-lift">Armar paquete</a>
     </div>
   </div>
 </section>
@@ -487,10 +522,10 @@
     <div class="kicker">Cómo avanzamos</div>
     <h4 class="text-2xl font-extrabold">Pasos para contratar</h4>
     <ol class="mt-4 grid md:grid-cols-4 gap-4 text-sm">
-      <li class="card p-4"><b>1) Validación</b><br/>Envíame dirección fiscal y foto de fachada; confirmamos cobertura.</li>
-      <li class="card p-4"><b>2) Propuesta</b><br/>Te mando 1-página con ahorro y fecha de instalación.</li>
-      <li class="card p-4"><b>3) Documentos</b><br/>RRLL, recibo con dirección, selfie con DNI (checklist abajo).</li>
-      <li class="card p-4"><b>4) Instalación</b><br/>Coordinamos horario y activamos las herramientas digitales.</li>
+      <li class="card p-4 hover-lift"><b>1) Validación</b><br/>Envíame dirección fiscal y foto de fachada; confirmamos cobertura.</li>
+      <li class="card p-4 hover-lift"><b>2) Propuesta</b><br/>Te mando 1-página con ahorro y fecha de instalación.</li>
+      <li class="card p-4 hover-lift"><b>3) Documentos</b><br/>RRLL, recibo con dirección, selfie con DNI (checklist abajo).</li>
+      <li class="card p-4 hover-lift"><b>4) Instalación</b><br/>Coordinamos horario y activamos las herramientas digitales.</li>
     </ol>
   </div>
 </section>
@@ -513,8 +548,8 @@
       </ul>
     </div>
     <div class="mt-5 flex flex-wrap gap-3">
-      <a href="#contacto" class="btn btn-primary">Enviar documentos por WhatsApp</a>
-      <a href="#contacto" class="btn btn-ghost">Solicitar checklist</a>
+      <a href="#contacto" class="btn btn-primary hover-lift">Enviar documentos por WhatsApp</a>
+      <a href="#contacto" class="btn btn-ghost hover-lift">Solicitar checklist</a>
     </div>
   </div>
 </section>
@@ -554,10 +589,10 @@
 
 <section id="contacto" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8 items-start">
   <div>
-    <div class="kicker">Asesor comercial</div>
-    <h3 class="text-3xl font-extrabold">¿Armamos tu propuesta 1-página hoy?</h3>
-    <p class="text-neutral-600 mt-2">Confírmame dirección y eliges el paquete ideal. Si el gasto queda por debajo de lo que pagas hoy, <b>agendamos instalación</b>.</p>
-    <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[13px]">
+    <div class="kicker observation-target">Asesor comercial</div>
+    <h3 class="text-3xl font-extrabold observation-target" style="transition-delay: 100ms;">¿Armamos tu propuesta 1-página hoy?</h3>
+    <p class="text-neutral-600 mt-2 observation-target" style="transition-delay: 200ms;">Confírmame dirección y eliges el paquete ideal. Si el gasto queda por debajo de lo que pagas hoy, <b>agendamos instalación</b>.</p>
+    <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[13px] observation-target" style="transition-delay: 300ms;">
       <span class="chip">Wi-Fi 6</span><span class="chip">Mesh (si aplica)</span><span class="chip">Instalación S/0</span>
       <span class="chip">L1 Max (Pro)</span><span class="chip">Soporte corporativo</span><span class="chip">Herramientas digitales</span>
     </div>
@@ -566,7 +601,7 @@
     <h4 class="text-xl font-extrabold">Solicitar cotización</h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
       <input class="card p-3" name="nombre" placeholder="Nombre y Apellidos *" required />
-      <input class="card p-3" name="ruc" placeholder="RUC 10 o 20 *" required />
+      <input class="card p-3" name="ruc" placeholder="RUC 10 o 20 (11 dígitos) *" required />
       <input class="card p-3 md:col-span-2" name="direccion" placeholder="Dirección completa (domicilio fiscal) *" required />
       <select class="card p-3" name="plan">
         <option value="2Play Internet + TV (400→1000)">2Play Internet + TV (400→1000)</option>
@@ -577,7 +612,7 @@
       </select>
       <input class="card p-3" name="correo" type="email" placeholder="Correo de facturación *" required/>
     </div>
-    <button class="btn btn-primary w-full mt-4" type="submit">Enviar y conversar por WhatsApp</button>
+    <button class="btn btn-primary w-full mt-4 hover-lift" type="submit">Enviar y conversar por WhatsApp</button>
     <div class="text-[12px] text-neutral-500 mt-2">Se abrirá WhatsApp con tu mensaje prellenado para <b>+51 947 723 248</b>.</div>
   </form>
 </section>
@@ -587,7 +622,7 @@
     <div class="text-sm">
       <b>Claro Empresas – Adriano B.</b> · Solo <b>RUC 10/20</b> · <span class="hidden sm:inline">Bono 1000 Mbps · L1 Max · 5000 min + 100 int.</span>
     </div>
-    <a href="#contacto" class="btn btn-primary">Cotizar por WhatsApp</a>
+    <a href="#contacto" class="btn btn-primary hover-lift">Cotizar por WhatsApp</a>
   </div>
 </div>
 
@@ -617,7 +652,7 @@
       Valida tu cobertura sin compromiso. Déjanos tu RUC y te enviamos la propuesta 
       con el bono de <b>1000 Mbps</b> y <b>–50%</b> por 6 meses hoy mismo.
     </p>
-    <a href="#contacto" id="popup-cta" class="btn btn-primary w-full mt-4">
+    <a href="#contacto" id="popup-cta" class="btn btn-primary w-full mt-4 hover-lift">
       Quiero mi cotización ahora
     </a>
   </div>
@@ -653,8 +688,11 @@
     if (window.innerWidth > 768) {
       initExitIntent();
     }
+    
+    // 5. ¡NUEVO! Inicializar los Tabs de Planes
+    initPlanTabs();
 
-    // 5. Asignar listeners a los formularios (tu función original ahora es parte del App)
+    // 6. Asignar listeners a los formularios
     const formTop = document.getElementById('leadTop');
     const formBottom = document.getElementById('leadBottom');
     
@@ -677,7 +715,6 @@
 
   /**
    * 1. Animaciones al hacer scroll
-   * Busca elementos con .observation-target y les añade .is-visible cuando entran en pantalla.
    */
   function initScrollObserver() {
     const targets = document.querySelectorAll('.observation-target');
@@ -685,17 +722,16 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // Dejar de observar una vez animado
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 }); // Activar al 10% de visibilidad
+    }, { threshold: 0.1 }); 
 
     targets.forEach(target => observer.observe(target));
   }
 
   /**
    * 2. Navegación activa
-   * Resalta el enlace del nav que corresponde a la sección visible.
    */
   function initNavObserver() {
     const sections = document.querySelectorAll('section.watch-section');
@@ -713,14 +749,13 @@
           });
         }
       });
-    }, { rootMargin: '-30% 0px -60% 0px' }); // Define el "gatillo" en el medio de la pantalla
+    }, { rootMargin: '-30% 0px -60% 0px' }); 
 
     sections.forEach(section => observer.observe(section));
   }
 
   /**
    * 3. Popup de "Exit-Intent"
-   * Muestra un popup cuando el mouse del usuario está por salir de la página.
    */
   function initExitIntent() {
     const popup = document.getElementById('exit-intent-popup');
@@ -728,13 +763,13 @@
     const ctaBtn = document.getElementById('popup-cta');
     if (!popup) return;
 
-    let popupShown = false; // Evitar que se muestre repetidamente
+    let popupShown = false; 
 
     const showPopup = () => {
       if (popupShown) return;
       popup.classList.add('visible');
       popupShown = true;
-      document.removeEventListener('mouseout', handleMouseOut); // Mostrar solo una vez
+      document.removeEventListener('mouseout', handleMouseOut); 
     };
 
     const hidePopup = () => {
@@ -742,7 +777,6 @@
     };
 
     const handleMouseOut = (e) => {
-      // e.toElement == null || e.relatedTarget == null significa que el mouse salió de la ventana
       if ((e.toElement === null || e.relatedTarget === null) && e.clientY < 10) {
         showPopup();
       }
@@ -750,7 +784,32 @@
 
     document.addEventListener('mouseout', handleMouseOut);
     closeBtn.addEventListener('click', hidePopup);
-    ctaBtn.addEventListener('click', hidePopup); // Cierra el popup y lleva al formulario
+    ctaBtn.addEventListener('click', hidePopup); 
+  }
+  
+  /**
+   * 4. ¡NUEVO! Controlador de Pestañas de Planes
+   */
+  function initPlanTabs() {
+    const tabContainer = document.getElementById('plan-tabs');
+    if (!tabContainer) return;
+    
+    const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('#plan-content .tab-pane');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        // Quitar 'active' de todos los botones y paneles
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Añadir 'active' al botón clickeado y al panel correspondiente
+        button.classList.add('active');
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+      });
+    });
   }
 
   // === FUNCIONES DEL FORMULARIO (MEJORADAS) ===
@@ -759,16 +818,11 @@
   function val(el, name) { return (qs(el, `[name="${name}"]`) || {}).value?.trim() || ''; }
 
   /**
-   * Valida el RUC (simple)
+   * Valida el RUC (Lógica de 11 dígitos para Perú)
    */
   function isValidRUC(ruc) {
     ruc = ruc.trim();
-    // Acepta RUC 10 (con negocio) o RUC 20. Solo números.
-    return (ruc.length === 11 && (ruc.startsWith('10') || ruc.startsWith('20'))) || (ruc.length === 10 && ruc.startsWith('10')) || (ruc.length === 11 && ruc.startsWith('15')) || (ruc.length === 11 && ruc.startsWith('17'));
-    // Ajuste: Aceptamos RUC 10 con 11 dígitos (ej. 10XXXXXXXXX) y RUC 20 (ej. 20XXXXXXXXX)
-    // Se ajusta para RUC 10 de 11 dígitos (común) y RUC 20.
-    // Corrección final: RUC 10 con negocio (11 dígitos, empieza con 10) y RUC 20 (11 dígitos, empieza con 20)
-    // El usuario mencionó RUC 10 y RUC 20. En Perú, ambos tienen 11 dígitos.
+    // RUC 10 (persona natural con negocio) y RUC 20 (empresa) ambos tienen 11 dígitos en Perú.
     return (ruc.length === 11) && (ruc.startsWith('10') || ruc.startsWith('20')) && /^\d+$/.test(ruc);
   }
 
@@ -804,12 +858,10 @@
       submitButton.textContent = originalButtonText;
       submitButton.disabled = false;
     }, 2000);
-
-    // No es necesario retornar 'false' gracias al e.preventDefault()
   }
 
   /**
-   * Tu función original para componer el mensaje
+   * Función para componer el mensaje
    */
   function composeMessage(scope, form) {
     const nombre = val(form, 'nombre'), ruc = val(form, 'ruc');
