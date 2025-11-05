@@ -30,11 +30,67 @@
   .tooltip{position:relative;cursor:help}
   .tooltip:hover .tip{opacity:1;transform:translateY(-2px)}
   .tip{position:absolute;left:0;top:-28px;background:#111827;color:#fff;font-size:11px;padding:.25rem .5rem;border-radius:.35rem;opacity:0;transition:.2s;white-space:nowrap}
+
+  /* === INICIO DE NUEVO CSS === */
+
+  /* 1. Para animaciones de Scroll (Fade-in) */
+  .observation-target {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .observation-target.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 2. Para el Popup de "Exit-Intent" */
+  #exit-intent-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  #exit-intent-popup.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .popup-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+  #exit-intent-popup.visible .popup-content {
+    transform: scale(1);
+  }
+  .popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+  }
+
+  /* 3. Para la Navegación Activa */
+  .nav-link-active {
+    color: var(--claro) !important;
+    font-weight: 800;
+  }
 </style>
 </head>
 <body class="bg-neutral-50/60 text-neutral-900">
 
-<!-- HEADER -->
 <header class="bg-white/90 backdrop-blur border-b border-neutral-200 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -46,18 +102,17 @@
       <span class="chip ml-2 text-[12.5px]">WhatsApp: <b>+51 947 723 248</b></span>
     </div>
     <nav class="hidden md:flex items-center gap-6 text-[14.5px]">
-      <a href="#planes" class="hover:text-red-700">Planes</a>
-      <a href="#herramientas" class="hover:text-red-700">Herramientas</a>
-      <a href="#tv" class="hover:text-red-700">TV+</a>
-      <a href="#telefonia" class="hover:text-red-700">Telefonía</a>
-      <a href="#moviles" class="hover:text-red-700">Móviles</a>
-      <a href="#requisitos" class="hover:text-red-700">Requisitos</a>
-      <a href="#contacto" class="hover:text-red-700">Cotizar</a>
+      <a href="#planes" class="nav-link hover:text-red-700">Planes</a>
+      <a href="#herramientas" class="nav-link hover:text-red-700">Herramientas</a>
+      <a href="#tv" class="nav-link hover:text-red-700">TV+</a>
+      <a href="#telefonia" class="nav-link hover:text-red-700">Telefonía</a>
+      <a href="#moviles" class="nav-link hover:text-red-700">Móviles</a>
+      <a href="#requisitos" class="nav-link hover:text-red-700">Requisitos</a>
+      <a href="#contacto" class="nav-link hover:text-red-700">Cotizar</a>
     </nav>
   </div>
 </header>
 
-<!-- RIBBON -->
 <div class="w-full bg-neutral-900 text-neutral-100 text-xs md:text-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap gap-3 items-center justify-between">
     <div class="flex items-center gap-2">
@@ -68,7 +123,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="brand-gradient">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
     <div>
@@ -88,8 +142,7 @@
       <div class="mt-4 text-xs text-neutral-600">Instalación S/0 sujeta a evaluación y cobertura. Solo RUC 10/20.</div>
     </div>
 
-    <!-- FORM HERO -->
-    <form id="leadTop" class="card p-5 bg-white" onsubmit="return sendToWhatsApp(this,'Hero')">
+    <form id="leadTop" class="card p-5 bg-white" onsubmit="return false;">
       <div class="flex items-center justify-between">
         <h3 class="text-xl font-extrabold">Cotización rápida</h3>
         <span class="badge">Atención inmediata</span>
@@ -114,51 +167,48 @@
   </div>
 </section>
 
-<!-- HIGHLIGHTS CARDS -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
   <div class="grid md:grid-cols-3 gap-4">
-    <div class="card p-5">
+    <div class="card p-5 observation-target">
       <div class="kicker">Oferta estrella</div>
-      <h4 class="text-2xl font-extrabold mt-1">2Play TV 400→1000</h4>
-      <p class="text-sm text-neutral-700 mt-1">L1 Max incluido, 100h en la nube, 2 decos sin costo.</p>
-      <div class="mt-3 text-3xl font-black text-red-600">S/ 115 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
-      <div class="tiny">Precio regular: S/ 230</div>
+      <h4 class="text-2xl font-extrabold mt-1">2Play Internet 400→1000 + TV </h4>
+      <p class="text-sm text-neutral-700 mt-1">L1 Max incluido, 100h de grabación, 2 decos S/0. costo.</p>
+      <div class="mt-3 text-3xl font-black text-red-600">S/ 85 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
+      <div class="tiny">Precio regular: S/ 170</div>
       <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
     </div>
-    <div class="card p-5">
+    <div class="card p-5 observation-target">
       <div class="kicker">Top ahorro</div>
-      <h4 class="text-2xl font-extrabold mt-1">2Play Línea 300→600</h4>
-      <p class="text-sm text-neutral-700 mt-1">5000 min + 100 min internacionales para tu negocio.</p>
+      <h4 class="text-2xl font-extrabold mt-1">2Play Internet 300→600 + Telefonia Fija </h4>
+      <p class="text-sm text-neutral-700 mt-1">5000 min internacionales con internet estable para negocios en crecimiento.</p>
       <div class="mt-3 text-3xl font-black text-red-600">S/ 64 <span class="text-sm font-semibold text-neutral-700">x 6 m</span></div>
       <div class="tiny">Precio regular: S/ 84</div>
       <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
     </div>
-    <div class="card p-5">
+    <div class="card p-5 observation-target">
       <div class="kicker">Solo Internet</div>
       <h4 class="text-2xl font-extrabold mt-1">1Play 400→1000</h4>
       <p class="text-sm text-neutral-700 mt-1">Wi-Fi 6 y Mesh (si aplica). Ideal para home-office pro.</p>
       <div class="mt-3 text-3xl font-black text-red-600">S/ 89</div>
-      <div class="tiny">Precio regular según plan</div>
       <a href="#contacto" class="btn btn-primary mt-4">La quiero</a>
     </div>
   </div>
 </section>
 
-<!-- PLANES (tabla completa con precio regular visible/tooltip) -->
-<section id="planes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<section id="planes" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
   <div class="mb-6">
     <div class="kicker">Catálogo</div>
     <h3 class="text-3xl md:text-4xl font-extrabold">¡Ahora 1000 Mbps por 12 meses!</h3>
     <p class="text-neutral-600 mt-2">Se confirman tras validar cobertura y evaluación. Después de 6 meses aplican cargos regulares del plan.</p>
   </div>
 
-  <div class="overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-lg bg-white">
+  <div class="overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-lg bg-white observation-target">
     <table class="w-full table text-sm md:text-[15px]">
       <thead class="bg-red-600 text-white">
         <tr>
           <th class="p-3 text-left">PLAN</th>
           <th class="p-3 text-left">1 PLAY<br><span class="text-xs opacity-90">Internet Fijo</span></th>
-          <th class="p-3 text-left">1 PLAY<br><span class="text-xs opacity-90">Telefonía 5000</span></th>
+          <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Telefonía 5000</span></th>
           <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Estándar Pro</span></th>
           <th class="p-3 text-left">2 PLAY<br><span class="text-xs opacity-90">Superior Pro</span></th>
           <th class="p-3 text-left">3 PLAY<br><span class="text-xs opacity-90">Estándar Pro</span></th>
@@ -166,7 +216,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- 1500 -->
         <tr class="bg-red-50/60 font-semibold">
           <td class="p-3">1500 Mbps<br><span class="text-[10px]">Con Full Claro + GB en tu móvil</span></td>
           <td class="p-3">S/ 200</td>
@@ -189,7 +238,6 @@
           </td>
         </tr>
 
-        <!-- 1000 -->
         <tr>
           <td class="p-3">1000 Mbps</td>
           <td class="p-3">S/ 145</td>
@@ -212,7 +260,6 @@
           </td>
         </tr>
 
-        <!-- 800 -> 1000 -->
         <tr class="bg-red-50/60">
           <td class="p-3">800 → 1000 Mbps <span class="text-[10px]">x 12 m</span></td>
           <td class="p-3">S/ 100</td>
@@ -235,7 +282,6 @@
           </td>
         </tr>
 
-        <!-- 400 -> 1000 -->
         <tr>
           <td class="p-3">400 → 1000 Mbps <span class="text-[10px]">x 12 m</span></td>
           <td class="p-3">S/ 89</td>
@@ -261,7 +307,6 @@
           </td>
         </tr>
 
-        <!-- 300 -> 600 -->
         <tr class="bg-red-50/60">
           <td class="p-3">300 → 600 Mbps <span class="text-[10px]">x 12 m</span></td>
           <td class="p-3">S/ 79</td>
@@ -287,7 +332,6 @@
           </td>
         </tr>
 
-        <!-- 200 -> 400 -->
         <tr>
           <td class="p-3">200 → 400 Mbps <span class="text-[10px]">x 12 m</span></td>
           <td class="p-3">S/ 69</td>
@@ -303,15 +347,14 @@
   <div class="text-xs text-neutral-500 mt-2">* Valores referenciales de campaña corporativa. Confirmación sujeta a elegibilidad, cobertura y evaluación.</div>
 </section>
 
-<!-- HERRAMIENTAS DIGITALES -->
-<section id="herramientas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<section id="herramientas" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
   <div class="mb-6">
     <div class="kicker">Transformación Digital</div>
     <h3 class="text-3xl md:text-4xl font-extrabold">Herramientas Digitales incluidas (según plan)</h3>
     <p class="text-neutral-600 mt-2">Se activan <b>por cliente</b> y <b>según plan de Internet contratado</b>. Sin costo adicional.</p>
   </div>
 
-  <div class="overflow-x-auto card p-4">
+  <div class="overflow-x-auto card p-4 observation-target">
     <table class="min-w-[880px] w-full text-sm">
       <thead>
         <tr class="bg-neutral-100">
@@ -326,25 +369,25 @@
       </thead>
       <tbody class="[&>tr:nth-child(odd)]:bg-neutral-50/70">
         <tr><td class="p-2 font-semibold">Claro Drive Negocios</td>
-            <td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td></tr>
+          <td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td><td class="p-2">100 GB</td></tr>
         <tr><td class="p-2 font-semibold">Claro Backup</td>
-            <td class="p-2">—</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td></tr>
+          <td class="p-2">—</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td><td class="p-2">15 GB / 1 equipo</td></tr>
         <tr><td class="p-2 font-semibold">Seguridad Empresas</td>
-            <td class="p-2">—</td><td class="p-2">1 licencia AV</td><td class="p-2">1 licencia AV</td><td class="p-2">2 licencias AV</td><td class="p-2">2 licencias AV</td><td class="p-2">2 licencias AV</td></tr>
+          <td class="p-2">1 licencia Antivirus</td><td class="p-2">1 licencia Antivirus</td><td class="p-2">1 licencia Antivirus</td><td class="p-2">2 licencias Antivirus</td><td class="p-2">2 licencias Antivirus</td><td class="p-2">2 licencias Antivirus</td></tr>
         <tr><td class="p-2 font-semibold">Factura Electrónica Web</td>
-            <td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td></tr>
+          <td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td><td class="p-2">60 documentos</td></tr>
         <tr><td class="p-2 font-semibold">Email Empresas</td>
-            <td class="p-2">—</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td></tr>
+          <td class="p-2">—</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td><td class="p-2">2 cuentas</td></tr>
         <tr><td class="p-2 font-semibold">Microsoft 365*</td>
-            <td class="p-2">—</td><td class="p-2">—</td><td class="p-2">Plan Comienza</td><td class="p-2">1 licencia</td><td class="p-2">2 licencias</td><td class="p-2">Plan Comienza</td></tr>
+          <td class="p-2">—</td><td class="p-2">—</td><td class="p-2"></td>—<td class="p-2">1 licencia</td><td class="p-2">2 licencias</td><td class="p-2">2 licencias</td></tr>
         <tr><td class="p-2 font-semibold">Tienda Virtual</td>
-            <td class="p-2">—</td><td class="p-2">—</td><td class="p-2">—</td><td class="p-2">—</td><td class="p-2">—</td><td class="p-2">Plan Comienza</td></tr>
+          <td class="p-2">—</td><td class="p-2">—</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td><td class="p-2">Plan Comienza</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="grid md:grid-cols-2 gap-6 mt-6">
-    <div class="card p-5">
+    <div class="card p-5 observation-target">
       <h4 class="text-xl font-extrabold">¿Qué incluyen?</h4>
       <ul class="mt-3 space-y-2 text-sm text-neutral-700">
         <li>• <b>Drive</b>: nube corporativa para compartir y restaurar archivos.</li>
@@ -357,7 +400,7 @@
       </ul>
       <div class="text-xs text-neutral-500 mt-3">*Disponibilidad/ediciones de M365 pueden variar por campaña.</div>
     </div>
-    <div class="card p-5 brand-gradient">
+    <div class="card p-5 brand-gradient observation-target">
       <h4 class="text-xl font-extrabold">Beneficio práctico</h4>
       <p class="mt-2 text-neutral-700 text-sm">Estas herramientas te permiten vender en línea, emitir facturas sin sistemas costosos, proteger equipos y trabajar en la nube —todo bajo una sola factura corporativa de Claro Empresas.</p>
       <a href="#contacto" class="btn btn-primary mt-4">Activarlas en mi empresa</a>
@@ -365,9 +408,8 @@
   </div>
 </section>
 
-<!-- TV + TELEFONÍA -->
-<section id="tv" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8">
-  <div class="card p-6">
+<section id="tv" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8">
+  <div class="card p-6 observation-target">
     <div class="kicker">Claro TV+</div>
     <h4 class="text-2xl font-extrabold">Más contenido y tecnología</h4>
     <ul class="mt-3 space-y-2 text-sm text-neutral-700">
@@ -378,7 +420,7 @@
     </ul>
     <a href="#contacto" class="btn btn-primary mt-5">Quiero TV Pro</a>
   </div>
-  <div id="telefonia" class="card p-6">
+  <div id="telefonia" class="watch-section card p-6 observation-target">
     <div class="kicker">Telefonía fija</div>
     <h4 class="text-2xl font-extrabold">5000 min + 100 internacionales</h4>
     <ul class="mt-3 space-y-2 text-sm text-neutral-700">
@@ -390,9 +432,8 @@
   </div>
 </section>
 
-<!-- COMPARATIVA RÁPIDA -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-  <div class="card p-6">
+  <div class="card p-6 observation-target">
     <div class="kicker">¿Por qué elegirnos?</div>
     <h4 class="text-2xl font-extrabold">Comparativa rápida</h4>
     <div class="mt-4 grid md:grid-cols-3 gap-4 text-sm">
@@ -412,9 +453,8 @@
   </div>
 </section>
 
-<!-- MÓVILES -->
-<section id="moviles" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-  <div class="card p-6 brand-gradient">
+<section id="moviles" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="card p-6 brand-gradient observation-target">
     <div class="kicker">Líneas móviles empresariales</div>
     <h3 class="text-2xl md:text-3xl font-extrabold">Hasta 50% de descuento por 12 meses</h3>
     <div class="mt-4 overflow-auto">
@@ -442,9 +482,8 @@
   </div>
 </section>
 
-<!-- PASOS PARA CONTRATAR -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="card p-6">
+  <div class="card p-6 observation-target">
     <div class="kicker">Cómo avanzamos</div>
     <h4 class="text-2xl font-extrabold">Pasos para contratar</h4>
     <ol class="mt-4 grid md:grid-cols-4 gap-4 text-sm">
@@ -456,9 +495,8 @@
   </div>
 </section>
 
-<!-- REQUISITOS -->
-<section id="requisitos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div class="card p-6">
+<section id="requisitos" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="card p-6 observation-target">
     <div class="kicker">Documentación</div>
     <h3 class="text-2xl md:text-3xl font-extrabold">¿Qué se necesita para contratar?</h3>
     <p class="text-neutral-600 mt-2">Solo para <b>RUC 10 o RUC 20</b>. Para elevaciones de crédito, podríamos solicitar PDT/estados de pago (si aplica).</p>
@@ -481,10 +519,9 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
   <div class="grid md:grid-cols-2 gap-8">
-    <div class="card p-6">
+    <div class="card p-6 observation-target">
       <h4 class="text-xl font-bold">Preguntas frecuentes</h4>
       <div class="mt-4 space-y-2">
         <details class="card p-3">
@@ -501,7 +538,7 @@
         </details>
       </div>
     </div>
-    <div id="tyc" class="card p-6">
+    <div id="tyc" class="card p-6 observation-target">
       <h4 class="text-xl font-bold">Condiciones</h4>
       <ul class="mt-4 space-y-2 text-xs text-neutral-600 leading-relaxed">
         <li>• Instalación S/0 y Mesh sin costo sujetos a campaña, evaluación y cobertura.</li>
@@ -515,8 +552,7 @@
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8 items-start">
+<section id="contacto" class="watch-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-2 gap-8 items-start">
   <div>
     <div class="kicker">Asesor comercial</div>
     <h3 class="text-3xl font-extrabold">¿Armamos tu propuesta 1-página hoy?</h3>
@@ -526,7 +562,7 @@
       <span class="chip">L1 Max (Pro)</span><span class="chip">Soporte corporativo</span><span class="chip">Herramientas digitales</span>
     </div>
   </div>
-  <form id="leadBottom" class="card p-5" onsubmit="return sendToWhatsApp(this,'Contacto')">
+  <form id="leadBottom" class="card p-5 observation-target" onsubmit="return false;">
     <h4 class="text-xl font-extrabold">Solicitar cotización</h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
       <input class="card p-3" name="nombre" placeholder="Nombre y Apellidos *" required />
@@ -546,7 +582,6 @@
   </form>
 </section>
 
-<!-- CTA STICKY BAR -->
 <div class="cta-bar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center gap-3 justify-between">
     <div class="text-sm">
@@ -556,7 +591,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="bg-neutral-900 text-neutral-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid md:grid-cols-2 gap-6 items-center">
     <div class="flex items-center gap-4">
@@ -574,38 +608,220 @@
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
+<div id="exit-intent-popup">
+  <div class="popup-content card relative">
+    <div id="popup-close" class="popup-close" aria-label="Cerrar">&times;</div>
+    <div class="kicker">¿YA TE VAS?</div>
+    <h3 class="text-2xl font-extrabold mt-1">Espera, ¡tenemos la mejor oferta para ti!</h3>
+    <p class="text-neutral-600 mt-2 text-sm">
+      Valida tu cobertura sin compromiso. Déjanos tu RUC y te enviamos la propuesta 
+      con el bono de <b>1000 Mbps</b> y <b>–50%</b> por 6 meses hoy mismo.
+    </p>
+    <a href="#contacto" id="popup-cta" class="btn btn-primary w-full mt-4">
+      Quiero mi cotización ahora
+    </a>
+  </div>
+</div>
+
 <div class="sticky-wa">
   <a aria-label="WhatsApp" href="https://wa.me/51947723248?text=Hola%20Adriano,%20quiero%20cotizar%20Claro%20Empresas%20(RUC%2010/20)."
-     target="_blank" rel="noopener">
+    target="_blank" rel="noopener">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.02 0C5.43 0 .07 5.36.07 11.95c0 2.11.55 4.16 1.6 5.97L0 24l6.21-1.62a12 12 0 0 0 5.81 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.2-1.25-6.21-3.46-8.43Zm-8.5 19.1h-.01a10.2 10.2 0 0 1-5.2-1.43l-.37-.22-3.69.96.99-3.6-.24-.37a10.23 10.23 0 0 1-1.56-5.51C2.94 6.39 7.34 2 12.99 2c2.73 0 5.29 1.06 7.22 3 1.94 1.93 3 4.49 3 7.22 0 5.65-4.6 10.15-10.2 10.15Zm5.9-7.6c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1 1.27-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.6-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.26-.63-.52-.55-.71-.55-.18 0-.4-.03-.61-.03-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.69s1.15 3.12 1.31 3.33c.16.21 2.26 3.45 5.47 4.83.76.33 1.36.53 1.82.68.76.24 1.45.21 2 .13.61-.1 1.9-.78 2.17-1.54.27-.76.27-1.41.19-1.54-.08-.13-.29-.21-.61-.37Z"/></svg>
   </a>
 </div>
 
 <script>
-  const WA = "https://wa.me/51947723248";
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // === CONFIGURACIÓN ===
+  const WA_NUMBER = "51947723248";
+  const WA_URL = `https://wa.me/${WA_NUMBER}`;
 
-  function qs(el,sel){return el.querySelector(sel)}
-  function val(el,name){return (qs(el,`[name="${name}"]`)||{}).value?.trim()||''}
+  // === MOTOR PRINCIPAL ===
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Asignar año al footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-  function composeMessage(scope,form){
-    const nombre = val(form,'nombre'), ruc = val(form,'ruc');
-    const direccion = val(form,'direccion'), plan = val(form,'plan');
-    const correo = val(form,'correo');
-    return `Hola Adriano, quiero cotizar *Claro Empresas* (%0AOrigen: ${encodeURIComponent(scope)}).%0A%0A`+
-           `*Nombre:* ${encodeURIComponent(nombre)}%0A`+
-           `*RUC:* ${encodeURIComponent(ruc)}%0A`+
-           `*Dirección (dom. fiscal):* ${encodeURIComponent(direccion)}%0A`+
-           `*Plan de interés:* ${encodeURIComponent(plan)}%0A`+
-           `*Correo de facturación:* ${encodeURIComponent(correo)}%0A%0A`+
-           `Valida cobertura y envíame la propuesta con el ahorro exacto.`;
+    // 2. Inicializar observadores de scroll para animaciones
+    initScrollObserver();
+
+    // 3. Inicializar observador de navegación activa
+    initNavObserver();
+
+    // 4. Inicializar popup de "Exit-Intent" (solo en desktop)
+    if (window.innerWidth > 768) {
+      initExitIntent();
+    }
+
+    // 5. Asignar listeners a los formularios (tu función original ahora es parte del App)
+    const formTop = document.getElementById('leadTop');
+    const formBottom = document.getElementById('leadBottom');
+    
+    if (formTop) {
+      formTop.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleFormSubmit(formTop, 'Hero');
+      });
+    }
+    
+    if (formBottom) {
+      formBottom.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleFormSubmit(formBottom, 'Contacto');
+      });
+    }
+  });
+
+  // === NUEVAS FUNCIONES ===
+
+  /**
+   * 1. Animaciones al hacer scroll
+   * Busca elementos con .observation-target y les añade .is-visible cuando entran en pantalla.
+   */
+  function initScrollObserver() {
+    const targets = document.querySelectorAll('.observation-target');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Dejar de observar una vez animado
+        }
+      });
+    }, { threshold: 0.1 }); // Activar al 10% de visibilidad
+
+    targets.forEach(target => observer.observe(target));
   }
 
-  function sendToWhatsApp(form, scope){
+  /**
+   * 2. Navegación activa
+   * Resalta el enlace del nav que corresponde a la sección visible.
+   */
+  function initNavObserver() {
+    const sections = document.querySelectorAll('section.watch-section');
+    const navLinks = document.querySelectorAll('nav .nav-link');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('nav-link-active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('nav-link-active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' }); // Define el "gatillo" en el medio de la pantalla
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  /**
+   * 3. Popup de "Exit-Intent"
+   * Muestra un popup cuando el mouse del usuario está por salir de la página.
+   */
+  function initExitIntent() {
+    const popup = document.getElementById('exit-intent-popup');
+    const closeBtn = document.getElementById('popup-close');
+    const ctaBtn = document.getElementById('popup-cta');
+    if (!popup) return;
+
+    let popupShown = false; // Evitar que se muestre repetidamente
+
+    const showPopup = () => {
+      if (popupShown) return;
+      popup.classList.add('visible');
+      popupShown = true;
+      document.removeEventListener('mouseout', handleMouseOut); // Mostrar solo una vez
+    };
+
+    const hidePopup = () => {
+      popup.classList.remove('visible');
+    };
+
+    const handleMouseOut = (e) => {
+      // e.toElement == null || e.relatedTarget == null significa que el mouse salió de la ventana
+      if ((e.toElement === null || e.relatedTarget === null) && e.clientY < 10) {
+        showPopup();
+      }
+    };
+
+    document.addEventListener('mouseout', handleMouseOut);
+    closeBtn.addEventListener('click', hidePopup);
+    ctaBtn.addEventListener('click', hidePopup); // Cierra el popup y lleva al formulario
+  }
+
+  // === FUNCIONES DEL FORMULARIO (MEJORADAS) ===
+  
+  function qs(el, sel) { return el.querySelector(sel); }
+  function val(el, name) { return (qs(el, `[name="${name}"]`) || {}).value?.trim() || ''; }
+
+  /**
+   * Valida el RUC (simple)
+   */
+  function isValidRUC(ruc) {
+    ruc = ruc.trim();
+    // Acepta RUC 10 (con negocio) o RUC 20. Solo números.
+    return (ruc.length === 11 && (ruc.startsWith('10') || ruc.startsWith('20'))) || (ruc.length === 10 && ruc.startsWith('10')) || (ruc.length === 11 && ruc.startsWith('15')) || (ruc.length === 11 && ruc.startsWith('17'));
+    // Ajuste: Aceptamos RUC 10 con 11 dígitos (ej. 10XXXXXXXXX) y RUC 20 (ej. 20XXXXXXXXX)
+    // Se ajusta para RUC 10 de 11 dígitos (común) y RUC 20.
+    // Corrección final: RUC 10 con negocio (11 dígitos, empieza con 10) y RUC 20 (11 dígitos, empieza con 20)
+    // El usuario mencionó RUC 10 y RUC 20. En Perú, ambos tienen 11 dígitos.
+    return (ruc.length === 11) && (ruc.startsWith('10') || ruc.startsWith('20')) && /^\d+$/.test(ruc);
+  }
+
+  /**
+   * Envía el formulario a WhatsApp (¡Ahora con validación!)
+   */
+  function handleFormSubmit(form, scope) {
+    const rucInput = qs(form, '[name="ruc"]');
+    const submitButton = qs(form, '[type="submit"]');
+
+    // --- ¡NUEVA VALIDACIÓN! ---
+    if (!isValidRUC(val(form, 'ruc'))) {
+      alert('Por favor, ingresa un RUC 10 o RUC 20 válido (de 11 dígitos).');
+      rucInput.focus();
+      rucInput.style.border = "1px solid red";
+      return false; // Detiene el envío
+    }
+    rucInput.style.border = "1px solid rgb(0 0 0 / .06)"; // Restaura el borde
+
+    // Deshabilitar botón para evitar doble envío
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = "Enviando...";
+    submitButton.disabled = true;
+
+    // Componer mensaje
     const msg = composeMessage(scope, form);
-    window.open(`${WA}?text=${msg}`,'_blank');
-    return false;
+    
+    // Abrir WhatsApp
+    window.open(`${WA_URL}?text=${msg}`, '_blank');
+    
+    // Reactivar el botón después de un momento
+    setTimeout(() => {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+    }, 2000);
+
+    // No es necesario retornar 'false' gracias al e.preventDefault()
+  }
+
+  /**
+   * Tu función original para componer el mensaje
+   */
+  function composeMessage(scope, form) {
+    const nombre = val(form, 'nombre'), ruc = val(form, 'ruc');
+    const direccion = val(form, 'direccion'), plan = val(form, 'plan');
+    const correo = val(form, 'correo');
+    return `Hola Adriano, quiero cotizar *Claro Empresas* (%0AOrigen: ${encodeURIComponent(scope)}).%0A%0A` +
+           `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
+           `*RUC:* ${encodeURIComponent(ruc)}%0A` +
+           `*Dirección (dom. fiscal):* ${encodeURIComponent(direccion)}%0A` +
+           `*Plan de interés:* ${encodeURIComponent(plan)}%0A` +
+           `*Correo de facturación:* ${encodeURIComponent(correo)}%0A%0A` +
+           `Valida cobertura y envíame la propuesta con el ahorro exacto.`;
   }
 </script>
 </body>
