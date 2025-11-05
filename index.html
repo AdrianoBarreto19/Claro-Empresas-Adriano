@@ -3,26 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Claro Empresas - Adriano B.</title>
-  <meta name="description" content="Planes Claro Empresas: Internet Fibra + TV, Telefonía fija y Líneas Móviles para RUC 10 / RUC 20. Asesor: Adriano B." />
+  <title>Claro Empresas – Adriano B.</title>
+  <meta name="description" content="Planes Claro Empresas para RUC 10 / RUC 20: Internet Fibra (hasta 1000 Mbps), 2Play TV, 2Play con Telefonía Fija y Líneas Móviles. Asesor Adriano B." />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --claro:#e60000; }
+    :root{ --claro:#E60000; --claro-dark:#C00000; }
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    .brand-gradient{background:linear-gradient(135deg,#ffefef 0%,#fff 35%,#ffe2e2 100%)}
+    .hero-gradient{background:radial-gradient(1200px 600px at 90% -10%, #ffbdbd 0, transparent 60%), radial-gradient(900px 500px at -10% -20%, #ffd4d4 0, transparent 60%), linear-gradient(180deg,#fff 0,#fff 60%,#fff0 100%)}
     .chip{ @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-600 ring-1 ring-red-100; }
     .card{ @apply bg-white rounded-2xl shadow-lg ring-1 ring-black/5; }
-    .kicker{ @apply uppercase tracking-wider text-[10px] font-bold text-red-600; }
     .btn{ @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold; }
-    .btn-primary{ @apply bg-[var(--claro)] text-white hover:bg-red-700 transition; }
+    .btn-primary{ @apply bg-[var(--claro)] text-white hover:bg-[var(--claro-dark)] transition; }
     .btn-ghost{ @apply bg-white text-[var(--claro)] ring-1 ring-red-200 hover:bg-red-50; }
+    .kicker{ @apply uppercase tracking-wider text-[10px] font-bold text-red-600; }
   </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900">
+  <!-- Top Bar -->
+  <div class="w-full bg-[var(--claro)] text-white text-xs md:text-sm py-2 text-center">Solo para <b>RUC 10</b> y <b>RUC 20</b> · Asesor Corporativo: <b>Adriano B.</b> · WhatsApp <a class="underline" href="https://wa.me/51947723248">+51 947 723 248</a></div>
+
   <!-- Header -->
-  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-neutral-200">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full bg-[var(--claro)] grid place-items-center text-white font-black">C</div>
@@ -31,170 +34,62 @@
           <p class="font-bold -mt-0.5">Adriano B.</p>
         </div>
       </div>
-      <a id="waTop" href="https://wa.me/51947723248?text=Hola%20Adriano,%20quiero%20mi%20propuesta%20Claro%20Empresas" class="btn btn-primary text-sm">
-        WhatsApp: +51 947 723 248
-      </a>
+      <a id="waTop" href="https://wa.me/51947723248?text=Hola%20Adriano,%20quiero%20mi%20propuesta%20Claro%20Empresas" class="btn btn-primary text-sm">WhatsApp: +51 947 723 248</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute -top-24 -right-20 w-[32rem] h-[32rem] bg-red-100 rounded-full blur-3xl opacity-60"></div>
+  <section class="hero-gradient">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <div class="chip">Solo para RUC 10 y RUC 20</div>
-        <h1 class="text-3xl md:text-5xl font-extrabold mt-4 leading-tight">
-          Optimiza tus costos con <span class="text-[var(--claro)]">Fibra + TV</span> corporativa
-        </h1>
-        <p class="mt-4 text-neutral-600 text-base md:text-lg">
-          Planes empresariales con Wi‑Fi 6, Mesh, TV corporativa con L1 Max, retroceso 24h y 100 h de grabación. 
-          Bonos de velocidad hasta 1000 Mbps y 50% de descuento promocional.
-        </p>
+        <div class="chip">Campaña Corporativa · Internet, TV y Telefonía</div>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-4 leading-tight">Internet empresarial <span class="text-[var(--claro)]">hasta 1000 Mbps</span> + TV y Telefonía fija</h1>
+        <p class="mt-4 text-neutral-600 text-base md:text-lg">Fibra óptica simétrica con Wi‑Fi 6, cobertura Mesh, TV corporativa (L1 Max, retroceso 24h, 100 h de grabación) y Telefonía fija con 5000 min + 100 internacionales. 7 Herramientas Digitales incluidas.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#planes" class="btn btn-primary">Ver planes con precios</a>
-          <a href="#moviles" class="btn btn-ghost">Líneas móviles</a>
+          <a href="#faq" class="btn btn-ghost">Preguntas frecuentes</a>
         </div>
-        <p class="mt-3 text-xs text-neutral-500">Sujeto a evaluación crediticia y cobertura. Instalación S/ 0 en campaña.</p>
       </div>
       <div class="relative">
         <div class="card p-6 md:p-8">
-          <div class="kicker">Propuesta destacada</div>
-          <h3 class="text-2xl md:text-3xl font-extrabold mt-2">2Play Internet + TV (400 → 1000 Mbps)</h3>
+          <div class="kicker">Recomendado</div>
+          <h3 class="text-2xl md:text-3xl font-extrabold mt-2">2Play · Internet 1000 Mbps + TV</h3>
+          <p class="text-neutral-600 mt-2">Velocidad comercial: 400 → <b>1000 Mbps</b> por 12 meses (bono). L1 Max incluido.</p>
           <ul class="mt-4 space-y-2 text-sm md:text-base text-neutral-700">
             <li>• Wi‑Fi 6 + primer nodo Mesh (si aplica)</li>
-            <li>• TV empresarial con L1 Max, retroceso 24h y 100 h de grabación</li>
-            <li>• 7 Herramientas Digitales: correo/M365, backup, seguridad, tienda online, factura web y más</li>
+            <li>• Retroceso 24h y 100 h de grabación</li>
+            <li>• 7 Herramientas Digitales: correo/M365, backup, seguridad, tienda online y factura web</li>
           </ul>
           <div class="mt-6 flex items-end gap-3">
             <div>
               <div class="text-4xl font-black">S/ 85</div>
               <div class="text-xs text-neutral-500">por 6 meses → luego S/ 170</div>
             </div>
-            <a href="#contacto" class="btn btn-primary ml-auto">Quiero esta tarifa</a>
+            <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 1000 Mbps + TV','S/ 85 x 6 → 170')">Lo quiero</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tabs -->
+  <!-- Switcher de categorías -->
   <section id="planes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-    <div class="card p-3 md:p-4">
+    <div class="card p-3 md:p-4 brand-gradient">
       <div class="flex flex-wrap gap-2 md:gap-3">
+        <button class="tab btn btn-ghost" data-tab="solo">Solo Internet</button>
         <button class="tab btn btn-ghost" data-tab="tv">2Play: Internet + TV</button>
-        <button class="tab btn btn-ghost" data-tab="linea">2Play: Internet + Línea fija</button>
-        <button class="tab btn btn-ghost" data-tab="solo">1Play: Solo Internet</button>
+        <button class="tab btn btn-ghost" data-tab="linea">2Play: Internet + Telefonía fija</button>
         <button class="tab btn btn-ghost" data-tab="moviles">Líneas móviles</button>
       </div>
     </div>
 
-    <!-- Aviso elegibilidad -->
-    <div id="elig" class="mt-4 text-sm text-neutral-600">
-      <span class="chip">Elegibilidad</span>
-      <span class="ml-2">Servicios para empresas con <b>RUC 10 / RUC 20</b>. Portabilidad y alta nuevas. Internet con TV y telefonía fija en esta sección.</span>
-    </div>
-
-    <!-- Grids -->
-    <div id="grid-tv" class="mt-6 grid md:grid-cols-3 gap-6">
-      <!-- Card TV 1000 -->
-      <div class="card p-6">
-        <div class="kicker">Favorito</div>
-        <h3 class="text-xl font-bold mt-1">2Play Internet + TV 1000 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">400 → 1000 Mbps x 12 (bono). L1 Max incluido.</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>• Wi‑Fi 6 + Mesh (si aplica)</li>
-          <li>• Retroceso 24h + 100 h de grabación</li>
-          <li>• 7 Herramientas Digitales empresariales</li>
-          <li>• Instalación S/ 0</li>
-        </ul>
-        <div class="mt-6 flex items-end gap-3">
-          <div>
-            <div class="text-3xl font-black">S/ 85</div>
-            <div class="text-xs text-neutral-500">por 6 meses → luego S/ 170</div>
-          </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Reservar</a>
-        </div>
-      </div>
-      <!-- Otro TV escalón -->
-      <div class="card p-6">
-        <div class="kicker">Accesible</div>
-        <h3 class="text-xl font-bold mt-1">2Play Internet + TV 600 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">300 → 600 Mbps x 6 (bono). 105 canales.</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>• Wi‑Fi 6 + decodificadores incluidos</li>
-          <li>• L1 Max disponible según plan</li>
-          <li>• Herramientas Digitales</li>
-        </ul>
-        <div class="mt-6 flex items-end gap-3">
-          <div>
-            <div class="text-3xl font-black">S/ 100</div>
-            <div class="text-xs text-neutral-500">referencial campaña (validación requerida)</div>
-          </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Solicitar detalle</a>
-        </div>
-      </div>
-      <div class="card p-6">
-        <div class="kicker">Alto desempeño</div>
-        <h3 class="text-xl font-bold mt-1">2Play Internet + TV 1000+ Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">Para múltiples cámaras y streaming.</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>• Wi‑Fi 6 / Mesh pro</li>
-          <li>• L1 Max + RPP</li>
-          <li>• Soporte empresarial prioritario</li>
-        </ul>
-        <div class="mt-6 flex items-end gap-3">
-          <div>
-            <div class="text-3xl font-black">A cotizar</div>
-            <div class="text-xs text-neutral-500">según cobertura y campaña</div>
-          </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Cotizar</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Internet + Línea -->
-    <div id="grid-linea" class="hidden mt-6 grid md:grid-cols-3 gap-6">
-      <div class="card p-6">
-        <div class="kicker">Relámpago</div>
-        <h3 class="text-xl font-bold mt-1">2Play Internet + Línea 600 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">300 → 600 Mbps x 3 (bono). 5000 min + 100 int.</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>• Wi‑Fi 6</li>
-          <li>• Portabilidad guiada</li>
-          <li>• Instalación S/ 0</li>
-        </ul>
-        <div class="mt-6 flex items-end gap-3">
-          <div>
-            <div class="text-3xl font-black">S/ 42</div>
-            <div class="text-xs text-neutral-500">por 3 meses → luego S/ 84</div>
-          </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Reservar</a>
-        </div>
-      </div>
-      <div class="card p-6">
-        <div class="kicker">Negocio</div>
-        <h3 class="text-xl font-bold mt-1">2Play Internet + Línea 800 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">Bono de velocidad en instalación.</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>• 5000 minutos</li>
-          <li>• 100 internacionales</li>
-        </ul>
-        <div class="mt-6 flex items-end gap-3">
-          <div>
-            <div class="text-3xl font-black">A cotizar</div>
-            <div class="text-xs text-neutral-500">según campaña</div>
-          </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Cotizar</a>
-        </div>
-      </div>
-    </div>
+    <p id="elig" class="mt-4 text-sm text-neutral-600"><span class="chip">Elegibilidad</span> Servicios exclusivos para empresas con <b>RUC 10 / RUC 20</b>. Los precios están sujetos a evaluación crediticia, cobertura y campaña vigente.</p>
 
     <!-- Solo Internet -->
-    <div id="grid-solo" class="hidden mt-6 grid md:grid-cols-3 gap-6">
+    <div id="grid-solo" class="mt-6 grid md:grid-cols-3 gap-6 hidden">
       <div class="card p-6">
         <div class="kicker">Económico</div>
-        <h3 class="text-xl font-bold mt-1">Internet 1Play 400 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">200 → 400 Mbps x 6 (bono).</p>
+        <h3 class="text-xl font-bold mt-1">1Play · Internet 200 → 400 Mbps</h3>
         <ul class="mt-4 space-y-2 text-sm">
           <li>• Wi‑Fi 6</li>
           <li>• Herramientas Digitales</li>
@@ -205,27 +100,142 @@
             <div class="text-3xl font-black">S/ 55</div>
             <div class="text-xs text-neutral-500">por 6 meses → luego S/ 110</div>
           </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Reservar</a>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('1Play Internet 200→400 Mbps','S/ 55 x 6 → 110')">Lo quiero</button>
         </div>
       </div>
       <div class="card p-6">
         <div class="kicker">Crecimiento</div>
-        <h3 class="text-xl font-bold mt-1">Internet 1Play 800 Mbps</h3>
-        <p class="text-sm text-neutral-600 mt-1">Bono en instalación (según plan).</p>
+        <h3 class="text-xl font-bold mt-1">1Play · Internet 400 → 800 Mbps</h3>
+        <p class="text-sm text-neutral-600 mt-1">Bono en instalación (según campaña).</p>
         <ul class="mt-4 space-y-2 text-sm">
-          <li>• Wi‑Fi 6</li>
-          <li>• Soporte empresarial</li>
+          <li>• Wi‑Fi 6 + Soporte corporativo</li>
+          <li>• Herramientas Digitales</li>
         </ul>
         <div class="mt-6 flex items-end gap-3">
           <div>
             <div class="text-3xl font-black">A cotizar</div>
             <div class="text-xs text-neutral-500">según cobertura</div>
           </div>
-          <a href="#contacto" class="btn btn-primary ml-auto">Cotizar</a>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('1Play Internet 400→800 Mbps','A cotizar')">Cotizar</button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Alto desempeño</div>
+        <h3 class="text-xl font-bold mt-1">1Play · Internet 600 → 1000 Mbps</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• Wi‑Fi 6 / Mesh</li>
+          <li>• Soporte prioritario</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">A cotizar</div>
+            <div class="text-xs text-neutral-500">según campaña</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('1Play Internet 600→1000 Mbps','A cotizar')">Cotizar</button>
         </div>
       </div>
     </div>
 
+    <!-- Internet + TV -->
+    <div id="grid-tv" class="mt-6 grid md:grid-cols-3 gap-6 hidden">
+      <div class="card p-6">
+        <div class="kicker">Favorito</div>
+        <h3 class="text-xl font-bold mt-1">2Play · Internet 1000 Mbps + TV</h3>
+        <p class="text-sm text-neutral-600 mt-1">Comercial 400 → 1000 Mbps x 12 (bono). L1 Max incluido.</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• Wi‑Fi 6 + Mesh (si aplica)</li>
+          <li>• Retroceso 24h + 100 h de grabación</li>
+          <li>• 7 Herramientas Digitales</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">S/ 85</div>
+            <div class="text-xs text-neutral-500">por 6 meses → luego S/ 170</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 1000 Mbps + TV','S/ 85 x 6 → 170')">Lo quiero</button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Accesible</div>
+        <h3 class="text-xl font-bold mt-1">2Play · Internet 600 Mbps + TV</h3>
+        <p class="text-sm text-neutral-600 mt-1">300 → 600 Mbps (bono).</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• 105 canales</li>
+          <li>• L1 Max según plan</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">S/ 100</div>
+            <div class="text-xs text-neutral-500">referencial campaña</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 600 Mbps + TV','S/ 100 referencial')">Solicitar</button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Pro</div>
+        <h3 class="text-xl font-bold mt-1">3Play · Internet + TV + Línea</h3>
+        <p class="text-sm text-neutral-600 mt-1">Opciones 400/600/1000 Mbps</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• L1 Max + 105 canales</li>
+          <li>• 5000 min + 100 internacionales</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">A cotizar</div>
+            <div class="text-xs text-neutral-500">según combinación</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('3Play Internet + TV + Línea','A cotizar')">Cotizar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internet + Línea fija -->
+    <div id="grid-linea" class="mt-6 grid md:grid-cols-3 gap-6 hidden">
+      <div class="card p-6">
+        <div class="kicker">Relámpago</div>
+        <h3 class="text-xl font-bold mt-1">2Play · Internet 600 Mbps + Línea</h3>
+        <p class="text-sm text-neutral-600 mt-1">300 → 600 Mbps por 3 meses (bono).</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• 5000 min nacionales</li>
+          <li>• 100 min internacionales</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">S/ 42</div>
+            <div class="text-xs text-neutral-500">por 3 meses → luego S/ 84</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 600 Mbps + Línea','S/ 42 x 3 → 84')">Lo quiero</button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Negocio</div>
+        <h3 class="text-xl font-bold mt-1">2Play · Internet 800 Mbps + Línea</h3>
+        <p class="text-sm text-neutral-600 mt-1">Bono en instalación.</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>• Portabilidad guiada</li>
+          <li>• Instalación S/ 0</li>
+        </ul>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">A cotizar</div>
+            <div class="text-xs text-neutral-500">según campaña</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 800 Mbps + Línea','A cotizar')">Cotizar</button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Full Claro</div>
+        <h3 class="text-xl font-bold mt-1">2Play · Internet 400→1000 + Línea</h3>
+        <p class="text-sm text-neutral-600 mt-1">Bono y beneficios por cliente activo.</p>
+        <div class="mt-6 flex items-end gap-3">
+          <div>
+            <div class="text-3xl font-black">Personalizado</div>
+            <div class="text-xs text-neutral-500">según elegibilidad</div>
+          </div>
+          <button class="btn btn-primary ml-auto" onclick="quickQuote('2Play Internet 400→1000 + Línea','Personalizado')">Evaluar</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Herramientas Digitales -->
@@ -233,90 +243,105 @@
     <div class="grid md:grid-cols-2 gap-8 items-center">
       <div>
         <div class="kicker">Herramientas Digitales</div>
-        <h3 class="text-2xl md:text-3xl font-extrabold mt-2">Incluidas en planes de Internet empresarial</h3>
+        <h3 class="text-2xl md:text-3xl font-extrabold mt-2">Incluidas con Internet empresarial</h3>
         <ul class="mt-4 space-y-2 text-neutral-700">
           <li>• Correo/M365 y Drive/Backup</li>
           <li>• Seguridad y filtrado</li>
           <li>• Factura Web</li>
           <li>• Tienda Virtual</li>
         </ul>
-        <p class="mt-3 text-sm text-neutral-500">Beneficios activos por cliente (una sola activación). Disponibilidad sujeta a campaña.</p>
+        <p class="mt-3 text-sm text-neutral-500">Beneficios activos por cliente (una activación por CUIT/RUC). Disponibilidad sujeta a campaña.</p>
       </div>
       <div class="card p-6 grid grid-cols-2 gap-4">
-        <div class="bg-red-50 rounded-xl p-4">
-          <p class="font-bold">Soporte</p>
-          <p class="text-sm text-neutral-600">Atención corporativa prioritaria</p>
-        </div>
-        <div class="bg-red-50 rounded-xl p-4">
-          <p class="font-bold">Wi‑Fi 6</p>
-          <p class="text-sm text-neutral-600">Cobertura y estabilidad</p>
-        </div>
-        <div class="bg-red-50 rounded-xl p-4">
-          <p class="font-bold">Mesh</p>
-          <p class="text-sm text-neutral-600">1º nodo sin costo (si aplica)</p>
-        </div>
-        <div class="bg-red-50 rounded-xl p-4">
-          <p class="font-bold">TV Pro</p>
-          <p class="text-sm text-neutral-600">L1 Max + retroceso 24h</p>
-        </div>
+        <div class="bg-red-50 rounded-xl p-4"><p class="font-bold">Soporte</p><p class="text-sm text-neutral-600">Atención corporativa prioritaria</p></div>
+        <div class="bg-red-50 rounded-xl p-4"><p class="font-bold">Wi‑Fi 6</p><p class="text-sm text-neutral-600">Mayor estabilidad y alcance</p></div>
+        <div class="bg-red-50 rounded-xl p-4"><p class="font-bold">Mesh</p><p class="text-sm text-neutral-600">1º nodo sin costo (si aplica)</p></div>
+        <div class="bg-red-50 rounded-xl p-4"><p class="font-bold">TV Pro</p><p class="text-sm text-neutral-600">L1 Max + retroceso 24h</p></div>
       </div>
     </div>
   </section>
 
   <!-- Móviles -->
   <section id="moviles" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="card p-6">
-      <div class="kicker">Líneas móviles</div>
-      <h3 class="text-2xl font-extrabold mt-1">Planes corporativos para tu equipo</h3>
-      <p class="mt-2 text-neutral-600">Combina fijo + móvil para calificar a beneficios <b>Full Claro</b>: descuentos preferenciales y bonos.</p>
+    <div class="card p-6 brand-gradient">
+      <div class="kicker">Líneas Móviles</div>
+      <h3 class="text-2xl font-extrabold mt-1">Complementa tu fijo con planes corporativos</h3>
+      <p class="mt-2 text-neutral-600">Activa fijo + móvil para calificar a beneficios de <b>Full Claro</b>: descuentos preferenciales y bonos.</p>
       <div class="mt-6 grid md:grid-cols-3 gap-6">
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
           <p class="font-bold">Claro Max Negocios</p>
           <p class="text-sm text-neutral-600">GB altos + apps libres</p>
           <p class="mt-4 text-2xl font-black">Desde S/ 29</p>
-          <a href="#contacto" class="btn btn-primary mt-4 w-full">Cotizar</a>
+          <button class="btn btn-primary mt-4 w-full" onclick="quickQuote('Móvil Claro Max Negocios','Desde S/ 29')">Cotizar</button>
         </div>
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
           <p class="font-bold">Negocios Ilimitado</p>
           <p class="text-sm text-neutral-600">Datos ilimitados</p>
           <p class="mt-4 text-2xl font-black">Desde S/ 109</p>
-          <a href="#contacto" class="btn btn-primary mt-4 w-full">Cotizar</a>
+          <button class="btn btn-primary mt-4 w-full" onclick="quickQuote('Móvil Negocios Ilimitado','Desde S/ 109')">Cotizar</button>
         </div>
         <div class="rounded-2xl border border-neutral-200 p-5 bg-white">
-          <p class="font-bold">Portabilidad empresas</p>
+          <p class="font-bold">Portabilidad Empresas</p>
           <p class="text-sm text-neutral-600">Mejor tarifa por migrar</p>
           <p class="mt-4 text-2xl font-black">A medida</p>
-          <a href="#contacto" class="btn btn-primary mt-4 w-full">Hablar por WhatsApp</a>
+          <button class="btn btn-primary mt-4 w-full" onclick="quickQuote('Móvil Portabilidad Empresas','A medida')">Hablar por WhatsApp</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contacto -->
+  <!-- Formulario Contacto -->
   <section id="contacto" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="grid md:grid-cols-2 gap-8 items-center">
       <div>
         <div class="kicker">Contacto</div>
         <h3 class="text-3xl font-extrabold mt-2">Valida cobertura y recibe tu proforma</h3>
-        <p class="mt-2 text-neutral-600">Rellena el formulario o escribe por WhatsApp para reservar la tarifa corporativa.</p>
-        <a href="https://wa.me/51947723248?text=Hola%20Adriano,%20quiero%20mi%20propuesta%20Claro%20Empresas" class="btn btn-primary mt-4">WhatsApp directo</a>
-        <p class="mt-3 text-xs text-neutral-500">Solo RUC 10 / RUC 20. Sujeto a evaluación y stock de campaña.</p>
+        <p class="mt-2 text-neutral-600">Completa y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+        <p class="mt-3 text-xs text-neutral-500">Solo RUC 10 / RUC 20 · Instalación S/ 0 sujeta a evaluación y stock.</p>
       </div>
-      <form class="card p-6 grid gap-3">
+      <form id="leadForm" class="card p-6 grid gap-3" onsubmit="sendToWA(event)">
         <div class="grid grid-cols-2 gap-3">
-          <input class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Nombre y Apellido" required />
-          <input class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Empresa / RUC" required />
+          <input id="fNombre" class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Nombre y Apellido" required />
+          <input id="fRuc" class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Empresa / RUC (10 o 20)" required />
         </div>
-        <input class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Dirección y distrito" required />
-        <input class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="WhatsApp" required />
-        <select class="rounded-xl border border-neutral-300 px-3 py-2">
-          <option value="2play-tv">2Play Internet + TV</option>
-          <option value="2play-linea">2Play Internet + Línea fija</option>
-          <option value="1play">Solo Internet</option>
-          <option value="moviles">Líneas móviles</option>
+        <input id="fDir" class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="Dirección, distrito y referencia" required />
+        <input id="fTel" class="rounded-xl border border-neutral-300 px-3 py-2" placeholder="WhatsApp de contacto" required />
+        <select id="fPlan" class="rounded-xl border border-neutral-300 px-3 py-2">
+          <option>2Play · Internet 1000 Mbps + TV — S/ 85 x 6 → 170</option>
+          <option>2Play · Internet 600 Mbps + Línea — S/ 42 x 3 → 84</option>
+          <option>1Play · Internet 200→400 Mbps — S/ 55 x 6 → 110</option>
+          <option>3Play · Internet + TV + Línea — A cotizar</option>
+          <option>Líneas Móviles — Cotizar</option>
         </select>
-        <button type="button" onclick="document.getElementById('waTop').click()" class="btn btn-primary">Enviar y conversar por WhatsApp</button>
+        <label class="text-xs text-neutral-600 flex items-start gap-2"><input id="fTerms" type="checkbox" required class="mt-1">Acepto las <a href="#tyc" class="underline">Condiciones de campaña</a> y autorizo el contacto por WhatsApp.</label>
+        <button type="submit" class="btn btn-primary">Enviar y conversar por WhatsApp</button>
       </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card p-6">
+        <h4 class="text-xl font-bold">Preguntas frecuentes</h4>
+        <ul class="mt-4 space-y-3 text-sm text-neutral-700">
+          <li><b>¿Hay penalidad por cambiar?</b> Si tienes permanencia con tu operador actual, podrían cobrarte. Te ayudamos a calcularla y ver si el ahorro compensa.</li>
+          <li><b>¿Después de 6 meses el precio sube?</b> Sí, se normaliza según plan. Te mantenemos en evaluación corporativa para sostener beneficios o bonos.</li>
+          <li><b>¿Full Claro?</b> Mantener líneas activas con Claro puede habilitar bonos permanentes y descuentos preferenciales.</li>
+          <li><b>¿Qué documentos necesito?</b> RUC y DNI del representante; en algunos casos PDT o recibo de servicio para validar crédito.</li>
+        </ul>
+      </div>
+      <div id="tyc" class="card p-6">
+        <h4 class="text-xl font-bold">Términos y condiciones (resumen)</h4>
+        <ul class="mt-4 space-y-2 text-xs text-neutral-600">
+          <li>• Precios promocionales para altas/portabilidades empresariales con RUC 10/20. Sujeto a evaluación crediticia, cobertura FTTH/HFC y stock.</li>
+          <li>• Bonos de velocidad: vigencia por campaña (ej. 400→1000 Mbps por 12 meses en 2Play TV; 200→400 por 6 meses en 1Play).</li>
+          <li>• Instalación S/ 0 sujeta a calificación técnica; Mesh gratuito si aplica.</li>
+          <li>• TV: incluye L1 Max en planes Pro, retroceso 24h y 100 h de grabación.</li>
+          <li>• Telefonía fija: 5000 min nacionales + 100 internacionales según plan.</li>
+          <li>• Herramientas digitales: una activación por cliente (correo/backup/seguridad/tienda/factura web).</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -325,34 +350,55 @@
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Tabs behavior
+    // Tabs
     const tabs = document.querySelectorAll('.tab');
-    const grids = {
-      tv: document.getElementById('grid-tv'),
-      linea: document.getElementById('grid-linea'),
-      solo: document.getElementById('grid-solo'),
-      moviles: document.getElementById('moviles')
-    };
     function show(tab){
-      // hide all grids
-      document.getElementById('grid-tv').classList.add('hidden');
-      document.getElementById('grid-linea').classList.add('hidden');
-      document.getElementById('grid-solo').classList.add('hidden');
-      // moviles section is outside grid; scroll there if selected
-      if(tab==='moviles'){
-        document.getElementById('moviles').scrollIntoView({behavior:'smooth'});
-      } else {
-        document.getElementById('elig').innerHTML = '<span class="chip">Elegibilidad</span> <span class="ml-2">Servicios para empresas con <b>RUC 10 / RUC 20</b>. <b>Sección seleccionada:</b> ' + (tab==='tv' ? 'Internet + TV' : (tab==='linea' ? 'Internet + Telefonía fija' : 'Solo Internet')) + '. Instalación S/0 en campaña.</span>';
-        document.getElementById('grid-'+tab).classList.remove('hidden');
-      }
+      const grids=['solo','tv','linea'];
+      grids.forEach(g=>document.getElementById('grid-'+g).classList.add('hidden'));
+      if(tab==='moviles'){ document.getElementById('moviles').scrollIntoView({behavior:'smooth'}); return; }
+      document.getElementById('grid-'+tab).classList.remove('hidden');
       tabs.forEach(b=>b.classList.remove('bg-red-50'));
       document.querySelector('[data-tab="'+tab+'"]').classList.add('bg-red-50');
+      const label = tab==='solo' ? 'Solo Internet' : (tab==='tv'?'Internet + TV':'Internet + Telefonía fija');
+      document.getElementById('elig').innerHTML = '<span class="chip">Elegibilidad</span> Servicios para <b>RUC 10 / 20</b>. Sección: <b>'+label+'</b>. Instalación S/0 y precios sujetos a campaña.';
     }
-    tabs.forEach(b=> b.addEventListener('click',()=>show(b.dataset.tab)) );
+    tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
     show('tv');
+
+    // Crear mensaje WhatsApp desde formulario
+    function sendToWA(e){
+      e.preventDefault();
+      const nombre = document.getElementById('fNombre').value.trim();
+      const ruc = document.getElementById('fRuc').value.trim();
+      const dir = document.getElementById('fDir').value.trim();
+      const tel = document.getElementById('fTel').value.trim();
+      const plan = document.getElementById('fPlan').value;
+      if(!document.getElementById('fTerms').checked){ alert('Debes aceptar las condiciones.'); return; }
+      const msg = encodeURIComponent(
+        `Hola Adriano, quiero mi propuesta corporativa.
+
+`+
+        `Nombre: ${nombre}
+RUC: ${ruc}
+Dirección: ${dir}
+WhatsApp: ${tel}
+Plan de interés: ${plan}
+
+`+
+        `Por favor validar cobertura y enviarme la proforma.`
+      );
+      window.open(`https://wa.me/51947723248?text=${msg}`,'_blank');
+    }
+    window.sendToWA = sendToWA;
+
+    // CTA rápidos de tarjetas
+    function quickQuote(plan,precio){
+      const msg = encodeURIComponent(`Hola Adriano, me interesa ${plan}. Precio: ${precio}. Soy RUC 10/20, validar cobertura y agendar instalación.`);
+      window.open(`https://wa.me/51947723248?text=${msg}`,'_blank');
+    }
+    window.quickQuote = quickQuote;
   </script>
 </body>
 </html>
